@@ -5,11 +5,12 @@
   width: 100%; /* Make it span the entire width of the screen */
   background-color: #333; /* Dark background */
   color: white; /* White text */
-  padding: 1rem; /* Add some padding */
+  padding: 0.5rem 1rem; /* Adjust padding for mobile */
   display: flex;
   justify-content: space-between; /* Space between logo and links */
   align-items: center; /* Center items vertically */
   z-index: 1000; /* Ensure it stays on top of other elements */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .navbar__container {
@@ -31,15 +32,16 @@
 .navbar__menu {
   list-style: none;
   display: flex;
-  gap: 1rem; /* Space between links */
+  gap: 1rem; /* Add spacing between links */
   margin: 0;
   padding: 0;
+  flex-direction: row; /* Default: Links are next to each other */
 }
 
 .navbar__link {
   text-decoration: none;
   color: white;
-  font-size: 1rem;
+  font-size: 1rem; /* Adjust font size for readability */
   transition: color 0.3s ease;
 }
 
@@ -80,4 +82,17 @@
 
 .navbar__dropdown-item:hover {
   background-color: #646cff;
+}
+
+@media (max-width: 768px) {
+  .navbar__container {
+    flex-direction: column; /* Stack logo and menu vertically */
+    align-items: center;
+  }
+
+  .navbar__menu {
+    flex-direction: column; /* Stack links vertically on mobile */
+    align-items: center; /* Center links on mobile */
+    gap: 0.75rem; /* Adjust spacing for mobile */
+  }
 }

@@ -28,6 +28,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  flex-direction: column; /* Stack content vertically */
+  padding: 1rem; /* Add padding for smaller screens */
 }
 
 h1 {
@@ -64,5 +66,16 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  button {
+    font-size: 1rem; /* Adjust button font size */
+    padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
   }
 }

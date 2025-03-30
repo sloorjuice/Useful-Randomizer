@@ -1,11 +1,12 @@
 .profile-container {
   max-width: 600px;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 1rem; /* Reduce padding for smaller screens */
   background-color: #5a5a5a;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 90%; /* Use a percentage width for responsiveness */
 }
 
 .profile-container h1 {
@@ -31,7 +32,8 @@
 .profile-details button {
   display: block; /* Make buttons stack vertically */
   margin: 1rem auto; /* Add spacing and center the buttons */
-  width: 200px; /* Set a consistent width for the buttons */
+  width: 100%; /* Make buttons full-width on mobile */
+  font-size: 1rem; /* Adjust font size */
 }
 
 .reset-password-button {
@@ -69,4 +71,10 @@
 .delete-profile-button:active {
     background-color: #cc0000; /* Even darker red when clicked */
     transform: scale(0.98); /* Slightly shrink button on click */
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
 }

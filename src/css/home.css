@@ -1,10 +1,10 @@
 .home {
   text-align: center;
-  padding: 2rem;
+  padding: 1rem; /* Reduce padding for smaller screens */
 }
 
 .home h1 {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Adjust font size for smaller screens */
   margin-bottom: 1rem;
 }
 
@@ -16,20 +16,28 @@
 .home__links {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 0.5rem; /* Reduce gap between buttons */
 }
 
 .home__button {
   padding: 0.8rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1rem; /* Adjust font size */
   color: white;
   background-color: #646cff;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  width: 100%; /* Make buttons full-width on mobile */
 }
 
 .home__button:hover {
   background-color: #535bf2;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
 }
