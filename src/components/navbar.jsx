@@ -53,14 +53,9 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar__container">
                 <Link to="/" className="navbar__logo">
-                    Randomizer
+                    Useful Randomizer
                 </Link>
                 <ul className="navbar__menu">
-                    <li>
-                        <Link to="/randomizer" className="navbar__link">
-                            Randomizer
-                        </Link>
-                    </li>
                     {user ? (
                         <li className="navbar__dropdown">
                             <span
