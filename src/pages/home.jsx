@@ -38,12 +38,13 @@ function Home() {
 
     return (
         <div className="home">
-            <h1>Welcome to the Useful Randomizer</h1>
+            <h1>Welcome to the Useful Randomizer (WIP)</h1>
             {user ? (
                 <p>Welcome, {username}!</p>
             ) : (
                 <p>Discover and randomly select games from your library!</p>
             )}
+            <p>Coming soon: Link Steam account</p>
             <div className="home__links">
                 {!user && (
                     <>
