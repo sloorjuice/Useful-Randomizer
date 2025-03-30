@@ -1,24 +1,22 @@
 .navbar {
   position: fixed; /* Fix the navbar at the top of the screen */
-  top: 0; /* Align it to the top */
-  left: 0; /* Align it to the left */
-  width: 100%; /* Make it span the entire width of the screen */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
   background-color: #333; /* Dark background */
   color: white; /* White text */
-  padding: 0.5rem 1rem; /* Adjust padding for mobile */
+  padding: 0.5rem 1rem;
   display: flex;
-  justify-content: space-between; /* Space between logo and links */
-  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center the container */
+  align-items: center;
   z-index: 1000; /* Ensure it stays on top of other elements */
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .navbar__container {
   width: 100%;
   max-width: 1200px; /* Limit the width of the navbar content */
-  margin: 0 auto; /* Center the navbar content */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Space between logo and right section */
   align-items: center;
 }
 
@@ -27,22 +25,25 @@
   font-weight: bold;
   text-decoration: none;
   color: white;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis if text overflows */
 }
 
 .navbar__menu {
   list-style: none;
   display: flex;
-  gap: 1rem; /* Add spacing between links */
+  align-items: center;
   margin: 0;
   padding: 0;
-  flex-direction: row; /* Default: Links are next to each other */
 }
 
 .navbar__link {
   text-decoration: none;
   color: white;
-  font-size: 1rem; /* Adjust font size for readability */
+  font-size: 1rem;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .navbar__link:hover {
@@ -86,18 +87,21 @@
 
 @media (max-width: 768px) {
   .navbar__container {
-    flex-direction: row; /* Keep the logo and menu in a single row */
-    justify-content: space-between; /* Space out the logo and links */
-    align-items: center; /* Center items vertically */
-  }
-
-  .navbar__menu {
-    flex-direction: row; /* Keep links in a single row */
-    gap: 0.5rem; /* Adjust spacing between links */
+    flex-direction: row; /* Keep logo and menu in a single row */
+    justify-content: space-between; /* Space out logo and links */
+    padding: 0 1rem;
   }
 
   .navbar__logo {
-    font-size: 1.25rem; /* Adjust font size for mobile if needed */
+    font-size: 1.25rem; /* Adjust font size for smaller screens */
+  }
+
+  .navbar__menu {
+    gap: 0.5rem; /* Reduce spacing between elements */
+  }
+
+  .navbar__dropdown-menu {
+    right: 0; /* Ensure dropdown aligns properly on mobile */
   }
 }
 
