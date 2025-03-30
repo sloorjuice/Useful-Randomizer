@@ -15,7 +15,7 @@
 }
 
 .profile-details {
-  text-align: left;
+  text-align: center; /* Center the content */
   margin-top: 1rem;
 }
 
@@ -26,6 +26,12 @@
 
 .profile-details strong {
   color: #000000;
+}
+
+.profile-details button {
+  display: block; /* Make buttons stack vertically */
+  margin: 1rem auto; /* Add spacing and center the buttons */
+  width: 200px; /* Set a consistent width for the buttons */
 }
 
 .reset-password-button {
@@ -43,4 +49,24 @@
 
 .reset-password-button:hover {
   background-color: #535bf2;
+}
+
+.delete-profile-button {
+    background-color: #ff4d4d; /* Red background to indicate danger */
+    color: rgb(0, 0, 0); 
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Add some padding */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.delete-profile-button:hover {
+    background-color: #e60000; /* Darker red on hover */
+}
+
+.delete-profile-button:active {
+    background-color: #cc0000; /* Even darker red when clicked */
+    transform: scale(0.98); /* Slightly shrink button on click */
 }
