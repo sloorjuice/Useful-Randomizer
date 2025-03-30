@@ -38,7 +38,7 @@ function Home() {
 
     return (
         <div className="home">
-            <h1>Welcome to Randomizer</h1>
+            <h1>Welcome to the Useful Randomizer</h1>
             {user ? (
                 <p>Welcome, {username}!</p>
             ) : (
