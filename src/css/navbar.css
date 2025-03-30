@@ -89,7 +89,7 @@
   .navbar__container {
     flex-direction: row; /* Keep logo and menu in a single row */
     justify-content: space-between; /* Space out logo and links */
-    padding: 0 1rem;
+    padding: 0 1rem; /* Add equal padding on both sides */
   }
 
   .navbar__logo {
@@ -98,6 +98,7 @@
 
   .navbar__menu {
     gap: 0.5rem; /* Reduce spacing between elements */
+    margin-right: 1rem; /* Add spacing on the right side */
   }
 
   .navbar__dropdown-menu {

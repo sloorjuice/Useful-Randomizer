@@ -1,7 +1,7 @@
 .form-container {
   max-width: 400px;
-  margin: 5rem auto 0; /* Add top margin to create spacing from the navbar */
-  padding: 1rem; /* Reduce padding for smaller screens */
+  margin: 5rem auto 0; /* Center the form with equal spacing on both sides */
+  padding: 1rem;
   text-align: center;
   background-color: #5a5a5a;
   border-radius: 8px;
@@ -32,6 +32,7 @@
 
 .form-container button {
   width: 100%;
+  max-width: 350px; /* Limit the button width */
   padding: 0.8rem;
   font-size: 1rem; /* Adjust font size for readability */
   color: white;
@@ -63,6 +64,13 @@
 
 @media (max-width: 768px) {
   .form-container {
+    width: 95%; /* Reduce width for smaller screens */
     padding: 1rem; /* Adjust padding for smaller screens */
+    margin: 4rem auto 0; /* Adjust top margin for better spacing */
+  }
+
+  .form-container input,
+  .form-container button {
+    max-width: 100%; /* Ensure inputs and buttons fit within the container */
   }
 }
