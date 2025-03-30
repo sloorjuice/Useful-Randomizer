@@ -86,13 +86,28 @@
 
 @media (max-width: 768px) {
   .navbar__container {
-    flex-direction: column; /* Stack logo and menu vertically */
-    align-items: center;
+    flex-direction: row; /* Keep the logo and menu in a single row */
+    justify-content: space-between; /* Space out the logo and links */
+    align-items: center; /* Center items vertically */
   }
 
   .navbar__menu {
-    flex-direction: column; /* Stack links vertically on mobile */
-    align-items: center; /* Center links on mobile */
-    gap: 0.75rem; /* Adjust spacing for mobile */
+    flex-direction: row; /* Keep links in a single row */
+    gap: 0.5rem; /* Adjust spacing between links */
+  }
+
+  .navbar__logo {
+    font-size: 1.25rem; /* Adjust font size for mobile if needed */
+  }
+}
+
+/* Add this to your global CSS or the specific content container */
+body {
+  padding-top: 3.5rem; /* Adjust based on the height of your navbar */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 4rem; /* Adjust for mobile if the navbar height changes */
   }
 }
