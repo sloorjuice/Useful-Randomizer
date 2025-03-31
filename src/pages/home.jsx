@@ -1,4 +1,5 @@
 import "../css/home.css";
+import { fetchSteamLibrary } from "../services/steam";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { db, auth } from "../services/firebase";
@@ -9,6 +10,8 @@ import { doc, getDoc } from "firebase/firestore";
 function Home() {
     const [user, setUser] = useState(null);
     const [username, setUsername] = useState("");
+    const [steamId, setSteamId] = useState("");
+    const [randomGame, setRandomGame] = useState(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -22,6 +25,7 @@ function Home() {
 
                     if (userDoc.exists()) {
                         setUsername(userDoc.data().username); // Set the username
+                        setSteamId(userDoc.data().steamId || ""); // Set the Steam ID if available
                     } else {
                         console.error("No such document!");
                     }
@@ -30,17 +34,40 @@ function Home() {
                 }
             } else {
                 setUsername(""); // Clear the username if the user logs out
+                setSteamId(""); // Clear the Steam ID if the user logs out
             }
         });
 
         return () => unsubscribe(); // Cleanup subscription on unmount
     }, []);
 
+    const handleRandomizeGame = async () => {
+        if (!steamId) {
+            alert("Please link your Steam account to use this feature.");
+            return;
+        } 
+        try {
+            const games = await fetchSteamLibrary(steamId, import.meta.env.VITE_STEAM_API_KEY);
+            const randomGame = games[Math.floor(Math.random() * games.length)];
+            setRandomGame(randomGame);
+        } catch (error) {
+            console.error("Error fetching Steam library:", error);
+        }
+    };
+
     return (
         <div className="home">
             <h1>Welcome to the Useful Randomizer (WIP)</h1>
             {user ? (
-                <p>Welcome, {username}!</p>
+                <>
+                    <p>Welcome, {username}!</p>
+                    {steamId && (
+                        <>
+                            <button onClick={handleRandomizeGame}>Randomize Game</button>
+                            {randomGame && (<p>Random Game: {randomGame.name}</p>)}
+                        </>
+                    )}
+                </>
             ) : (
                 <p>Discover and randomly select games from your library!</p>
             )}

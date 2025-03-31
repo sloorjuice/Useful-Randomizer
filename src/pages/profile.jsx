@@ -1,13 +1,15 @@
 import "../css/profile.css";
 import { useState, useEffect } from "react";
 import { auth, db } from "../services/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { onAuthStateChanged, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
-import { doc, getDoc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc, deleteDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 function Profile() {
     const [user, setUser] = useState(null);
     const [profileData, setProfileData] = useState({});
+    const [steamId, setSteamId] = useState(""); // State for Steam ID
     const navigate = useNavigate(); // Initialize useNavigate
 
     useEffect(() => {
@@ -20,7 +22,9 @@ function Profile() {
                     const userDoc = await getDoc(userRef);
 
                     if (userDoc.exists()) {
-                        setProfileData(userDoc.data());
+                        const data = userDoc.data();
+                        setProfileData(data);
+                        setSteamId(data.steamId || ""); // Set Steam ID from Firestore
                     } else {
                         console.error("No such document!");
                     }
@@ -32,6 +36,19 @@ function Profile() {
 
         return () => unsubscribe();
     }, []);
+
+    const handleLinkSteam = async () => {
+        if (!user) return;
+
+        try {
+            const userRef = doc(db, "users", user.uid);
+            await updateDoc(userRef, { steamId });
+            alert("Steam account linked successfully!");
+        } catch (error) {
+            console.error("Error linking Steam account:", error);
+            alert("Failed to link Steam account. Please try again.");
+        }
+    };
 
     const handlePasswordReset = () => {
         navigate("/forgot-password"); // Redirect to the password reset page
@@ -71,6 +88,18 @@ function Profile() {
                 <div className="profile-details">
                     <p><strong>Username:</strong> {profileData.username || "N/A"}</p>
                     <p><strong>Email:</strong> {profileData.email || "N/A"}</p>
+                    <p><strong>Steam ID:</strong></p> {profileData.steamId || "Not linked"}
+                    <div className="steam-linking">
+                        <input 
+                            type="text" 
+                            placeholder="Enter your Steam ID"
+                            value={steamId}
+                            onChange={(e) => setSteamId(e.target.value)}
+                        />
+                    </div>
+                    <button className="link-steam-button" onClick={handleLinkSteam}>
+                        Link Steam Account
+                    </button>
                     <button className="reset-password-button" onClick={handlePasswordReset}>
                         Reset Password
                     </button>
