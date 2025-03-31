@@ -1,12 +1,12 @@
 # Useful Randomizer
 
-This is a simple website using the [Steam API](https://steamcommunity.com/dev) and [Firebase](https://firebase.google.com/)
-Currently, the website is hosted here: https://usefulrandomzier.netlify.app/
+- This is a simple website using the [Steam API](https://steamcommunity.com/dev) and [Firebase](https://firebase.google.com/)
+- Currently, the website is hosted here: https://usefulrandomzier.netlify.app/
 
 ---
 
 ## A website that allows you to randomly select games out of your steam library! 
-Just create an account and link your steam ID in your profile and press "Randomize Game" on the home screen.
+- Just create an account and link your steam ID in your profile and press "Randomize Game" on the home screen.
 
 ---
 
