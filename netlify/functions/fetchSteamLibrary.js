@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 exports.handler = async (event) => {
     const { steamId } = event.queryStringParameters;
     const apiKey = event.queryStringParameters.apiKey || process.env.STEAM_API_KEY;
@@ -14,20 +12,12 @@ exports.handler = async (event) => {
         };
     }
 
-    console.log("Testing network connectivity...");
-    try {
-        const testResponse = await fetch("https://api.steampowered.com");
-        console.log("Steam API connectivity test status:", testResponse.status);
-    } catch (networkError) {
-        console.error("Network connectivity issue:", networkError.message);
-    }
-
     const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${apiKey}&steamid=${steamId}&include_appinfo=true`;
 
     console.log("Fetching URL:", url);
 
     try {
-        const response = await fetch(url);
+        const response = await fetch(url); // Use native fetch
         console.log("Response status:", response.status);
 
         if (!response.ok) {
