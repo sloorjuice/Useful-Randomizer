@@ -25,7 +25,6 @@ export async function fetchSteamLibrary(steamId, apiKey) {
             }
             return data.response.games;
         } else {
-            console.error("Unexpected response format:", text);
             throw new Error("Unexpected response format from Steam API");
         }
     } catch (error) {
