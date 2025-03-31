@@ -1,12 +1,17 @@
-# React + Vite
+# Useful Randomizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple website using the [Steam API](https://pokeapi.co/) and [Firebase](https://pokeapi.co/)
+Currently, the website is hosted here: https://pokedexunlimited.netlify.app/
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## A website that allows you to randomly select games out of your steam library! 
+Just create an account and link your steam ID in your profile and press "Randomize Game" on the home screen.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<details>
+  <summary>Screenshots</summary>
+
+  <img width="1680" alt="Screenshot 2025-03-31 at 6 27 41 PM" src="https://github.com/user-attachments/assets/eb57d240-7838-4b3f-aeb8-e5f2cc01d5b9" /> <img width="1680" alt="Screenshot 2025-03-31 at 6 27 59 PM" src="https://github.com/user-attachments/assets/123cda2a-c820-48ae-9fd5-c1796d2a72fc" />
+</details>
