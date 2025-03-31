@@ -1,7 +1,7 @@
 # Useful Randomizer
 
-This is a simple website using the [Steam API](https://pokeapi.co/) and [Firebase](https://pokeapi.co/)
-Currently, the website is hosted here: https://pokedexunlimited.netlify.app/
+This is a simple website using the [Steam API](https://steamcommunity.com/dev) and [Firebase](https://firebase.google.com/)
+Currently, the website is hosted here: https://usefulrandomzier.netlify.app/
 
 ---
 
