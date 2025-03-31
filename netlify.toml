@@ -1,5 +1,5 @@
 [functions]
-  node_bundler = "esbuild" # Use esbuild for faster bundling
+  node_bundler = "esbuild"
 
 [build.environment]
-  NODE_VERSION = "18" # Specify Node.js version
+  NODE_VERSION = "18"
