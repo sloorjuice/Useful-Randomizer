@@ -2,10 +2,6 @@ body, .home {
   user-select: none; /* Disable text selection */
 }
 
-* {
-  contenteditable: false; /* Ensure no element is editable */
-}
-
 .home {
   text-align: center;
   padding: 1rem; /* Reduce padding for smaller screens */

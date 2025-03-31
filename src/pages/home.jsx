@@ -77,7 +77,7 @@ function Home() {
             ) : (
                 <p>Discover and randomly select games from your library!</p>
             )}
-            <p>Coming soon: Link Steam account</p>
+            <p>Coming soon: Link playstation and xbox accounts</p>
             <div className="home__links">
                 {!user && (
                     <>
