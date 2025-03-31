@@ -68,7 +68,7 @@ function Home() {
                             {randomGame && (
                                 <div className="random-game">
                                     <img src={randomGame.coverUrl} alt={`${randomGame.name} cover`} className="random-game__cover" />
-                                    <p>Random Game: {randomGame.name}</p>
+                                    <p><strong>Random Game:</strong> {randomGame.name}</p>
                                 </div>
                             )}
                         </>
