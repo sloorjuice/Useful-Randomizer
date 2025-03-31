@@ -1,7 +1,8 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
-    const { steamId, apiKey } = event.queryStringParameters;
+    const { steamId } = event.queryStringParameters;
+    const apiKey = event.queryStringParameters.apiKey || process.env.STEAM_API_KEY;
 
     if (!steamId || !apiKey) {
         return {
@@ -17,19 +18,19 @@ exports.handler = async (event) => {
         if (!response.ok) {
             return {
                 statusCode: response.status,
-                body: JSON.stringify({ error: "Error fetching Steam library" }),
+                body: JSON.stringify({ error: `Steam API error: ${response.statusText}` }),
             };
         }
 
         const data = await response.json();
         return {
             statusCode: 200,
-            body: JSON.stringify(data.response.games || []),
+            body: JSON.stringify(data),
         };
     } catch (error) {
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: "Internal server error" }),
+            body: JSON.stringify({ error: error.message }),
         };
     }
-}
+};
