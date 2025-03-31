@@ -1,3 +1,2 @@
 /*    /index.html   200
 # Proxy requests to the Steam API
-/api/steam-library/* https://api.steampowered.com/:splat 200
