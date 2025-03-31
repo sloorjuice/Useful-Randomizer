@@ -36,6 +36,18 @@
   background-color: #535bf2;
 }
 
+.random-game {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.random-game__cover {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
   .home {
     padding: 1rem; /* Adjust padding for smaller screens */

@@ -49,7 +49,8 @@ function Home() {
         try {
             const games = await fetchSteamLibrary(steamId, import.meta.env.VITE_STEAM_API_KEY);
             const randomGame = games[Math.floor(Math.random() * games.length)];
-            setRandomGame(randomGame);
+            const gameCoverUrl = `https://cdn.cloudflare.steamstatic.com/steam/apps/${randomGame.appid}/header.jpg`;
+            setRandomGame({ ...randomGame, coverUrl: gameCoverUrl });
         } catch (error) {
             console.error("Error fetching Steam library:", error);
         }
@@ -64,7 +65,12 @@ function Home() {
                     {steamId && (
                         <>
                             <button onClick={handleRandomizeGame}>Randomize Game</button>
-                            {randomGame && (<p>Random Game: {randomGame.name}</p>)}
+                            {randomGame && (
+                                <div className="random-game">
+                                    <img src={randomGame.coverUrl} alt={`${randomGame.name} cover`} className="random-game__cover" />
+                                    <p>Random Game: {randomGame.name}</p>
+                                </div>
+                            )}
                         </>
                     )}
                 </>
