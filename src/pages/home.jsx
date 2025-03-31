@@ -45,12 +45,12 @@ function Home() {
         if (!steamId) {
             alert("Please link your Steam account to use this feature.");
             return;
-        } 
+        }
         try {
             const games = await fetchSteamLibrary(steamId, import.meta.env.VITE_STEAM_API_KEY);
             const randomGame = games[Math.floor(Math.random() * games.length)];
             const gameCoverUrl = `https://cdn.cloudflare.steamstatic.com/steam/apps/${randomGame.appid}/header.jpg`;
-            setRandomGame({ ...randomGame, coverUrl: gameCoverUrl });
+            setRandomGame({ ...randomGame, coverUrl: gameCoverUrl, storeUrl: `https://store.steampowered.com/app/${randomGame.appid}/` });
         } catch (error) {
             console.error("Error fetching Steam library:", error);
         }
@@ -67,8 +67,15 @@ function Home() {
                             <button onClick={handleRandomizeGame}>Randomize Game</button>
                             {randomGame && (
                                 <div className="random-game">
-                                    <img src={randomGame.coverUrl} alt={`${randomGame.name} cover`} className="random-game__cover" />
-                                    <p><strong>Random Game:</strong> {randomGame.name}</p>
+                                    <a href={randomGame.storeUrl} target="_blank" rel="noopener noreferrer">
+                                        <img src={randomGame.coverUrl} alt={`${randomGame.name} cover`} className="random-game__cover" />
+                                    </a>
+                                    <p>
+                                        <strong>Random Game:</strong>{" "}
+                                        <a href={randomGame.storeUrl} target="_blank" rel="noopener noreferrer">
+                                            {randomGame.name}
+                                        </a>
+                                    </p>
                                 </div>
                             )}
                         </>
